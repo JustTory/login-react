@@ -4,6 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import store from './redux/store.js';
+import { authenticate } from './redux/actions.js';
+
+const unsubscribe = store.subscribe(() => {
+  console.log("store changed", store.getState());
+})
+
+store.dispatch(authenticate("hehe"))
+//unsubscribe()
+store.dispatch(authenticate(null))
+
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
