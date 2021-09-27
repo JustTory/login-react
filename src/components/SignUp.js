@@ -11,7 +11,7 @@ const SignUp = () => {
     const [username, setUsername] = useState('')
     const [password1, setPassword1] = useState('')
     const [password2, setPassword2] = useState('')
-    const [gender, setGender] = useState('')
+    const [gender, setGender] = useState('male')
     //const [errorEmail, setErrorEmail] = useState('')
     const [errorPassword, setErrorPassword] = useState('')
 
@@ -61,7 +61,7 @@ const SignUp = () => {
                 <div className="form-group">
                     <label htmlFor="exampleFormControlSelect1">Gender</label>
                     <select className="form-control" id="exampleFormControlSelect1" value={gender} onChange={(e) => setGender(e.target.value)}>
-                        <option selected value="male">Male</option>
+                        <option value="male">Male</option>
                         <option value="female">Female</option>
                         <option value="other">Other</option>
                     </select>

@@ -14,7 +14,7 @@ const Navbar = () => {
                         <Link className="nav-link" to="/contactus">Contact us</Link>
                     </li>
                     <li className="nav-item">
-                        <button type="button" class="btn btn-sm btn-danger text-white nav-link" onClick={() => dispatch(signOut())}>Sign out</button>
+                        <button type="button" className="btn btn-sm btn-danger text-white nav-link" onClick={() => dispatch(signOut())}>Sign out</button>
                     </li>
                 </ul>
             )

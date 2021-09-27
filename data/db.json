@@ -1,118 +1,18 @@
 {
   "users": [
     {
-      "id": 1,
+      "email": "johnnynathany@gmail.com",
+      "username": "JustTory",
+      "password": "1",
+      "gender": "male",
+      "id": 1
+    },
+    {
       "email": "quantriminh@gmail.com",
-      "password": "heheboi"
-    },
-    {
-      "email": "hehe@gmail.com",
-      "password2": "aaa",
-      "gender": "female",
-      "id": 4
-    },
-    {
-      "email": "hehe@gmail.com",
-      "password2": "asdf",
-      "gender": "female",
-      "id": 5
-    },
-    {
-      "email": "asdf@gasd",
-      "password2": "asdf",
-      "gender": "",
-      "id": 6
-    },
-    {
-      "email": "hihi@gmail",
-      "username": "tory",
-      "password2": "tory",
-      "gender": "",
-      "id": 7
-    },
-    {
-      "email": "aaaa@gmail",
-      "username": "asdf",
-      "password": "asdf",
-      "gender": "female",
-      "id": 8
-    },
-    {
-      "email": "asdfasdf@adf",
-      "username": "fffffff",
-      "password": "fff",
-      "gender": "female",
-      "id": 9
-    },
-    {
-      "email": "johnnynathany@gmail.com",
-      "username": "heheboi",
-      "password": "hehe",
-      "gender": "female",
-      "id": 10
-    },
-    {
-      "email": "a@d",
-      "username": "dd",
-      "password": "dd",
-      "gender": "",
-      "id": 11
-    },
-    {
-      "email": "johnnynathany@gmail.com",
-      "username": "tory",
-      "password": "1",
-      "gender": "",
-      "id": 12
-    },
-    {
-      "email": "aa@gmail.com",
-      "username": "lmao",
-      "password": "1",
-      "gender": "female",
-      "id": 13
-    },
-    {
-      "email": "aa@gmail.com",
-      "username": "lulul",
-      "password": "1",
-      "gender": "female",
-      "id": 14
-    },
-    {
-      "email": "aa@gmail.com",
-      "username": "plswork",
-      "password": "1",
-      "gender": "other",
-      "id": 15
-    },
-    {
-      "email": "work@gmail.com",
-      "username": "plssss",
-      "password": "1",
-      "gender": "",
-      "id": 16
-    },
-    {
-      "email": "pls@gmail.com",
-      "username": "1",
-      "password": "1",
-      "gender": "",
-      "id": 17
-    },
-    {
-      "email": "1@gas",
-      "username": "1",
-      "password": "1",
-      "gender": "other",
-      "id": 18
-    },
-    {
-      "email": "jfjfjf@dafd",
-      "username": "plsmom",
-      "password": "1",
-      "gender": "female",
-      "id": 19
+      "username": "tri",
+      "password": "2",
+      "gender": "male",
+      "id": 2
     }
   ]
 }
