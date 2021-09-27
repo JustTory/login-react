@@ -1,8 +1,12 @@
-import * as actions from './actionTypes'
-
-export const authenticate = name => ({
-    type: actions.AUTHENTICATE,
-    payload: {
-        username: name
+export const signIn = (username, gender) => ({
+    type: "SIGN_IN",
+    user: {
+        username: username,
+        gender: gender
     }
+
+})
+
+export const signOut = () => ({
+    type: "SIGN_OUT"
 })

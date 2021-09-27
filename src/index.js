@@ -4,22 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { Provider } from 'react-redux';
 import store from './redux/store.js';
-import { authenticate } from './redux/actions.js';
-
-const unsubscribe = store.subscribe(() => {
-  console.log("store changed", store.getState());
-})
-
-store.dispatch(authenticate("hehe"))
-//unsubscribe()
-store.dispatch(authenticate(null))
-
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 

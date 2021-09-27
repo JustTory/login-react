@@ -1,10 +1,12 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { useHistory, Link } from 'react-router-dom'
+import { signIn } from '../redux/actions';
+import { useDispatch } from 'react-redux';
 
 import '../css/Login.css';
 
-const SignUp = ({isLoggedIn}) => {
+const SignUp = () => {
     const [email, setEmail] = useState('')
     const [username, setUsername] = useState('')
     const [password1, setPassword1] = useState('')
@@ -13,24 +15,24 @@ const SignUp = ({isLoggedIn}) => {
     //const [errorEmail, setErrorEmail] = useState('')
     const [errorPassword, setErrorPassword] = useState('')
 
+    const dispatch = useDispatch()
     const history = useHistory()
 
     useEffect(() => {
-        if(password2 !== password1 && password2 !== '') setErrorPassword("Passwords don't match")
+        if (password2 !== password1 && password2 !== '') setErrorPassword("Passwords don't match")
         else setErrorPassword('')
     }, [password2, password1])
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if(errorPassword === '') {
-            const user = {"email": email, "username": username, "password": password2, "gender": gender}
+        if (errorPassword === '') {
+            const user = { "email": email, "username": username, "password": password2, "gender": gender }
             fetch('http://localhost:3001/users', {
                 method: 'POST',
-                headers: {"Content-Type": "application/json"},
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(user)
             }).then(() => {
-                isLoggedIn(username)
-                localStorage.setItem('user', username)
+                dispatch(signIn(username, gender))
                 history.push('/')
             })
         }
@@ -59,9 +61,9 @@ const SignUp = ({isLoggedIn}) => {
                 <div className="form-group">
                     <label htmlFor="exampleFormControlSelect1">Gender</label>
                     <select className="form-control" id="exampleFormControlSelect1" value={gender} onChange={(e) => setGender(e.target.value)}>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
+                        <option selected value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
                     </select>
                 </div>
 

@@ -1,12 +1,14 @@
 import React from 'react'
 import axios from 'axios'
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 const Home = () => {
+    const user = useSelector(state => state.user)
     const [serverMsg, setServerMsg] = useState('')
 
     let msg = ''
-    if(localStorage.getItem('user') !== '') msg = "Welcome, " + localStorage.getItem('user')
+    if(user !== null) msg = "Welcome, " + user.username
     else msg = "Please log in"
 
 

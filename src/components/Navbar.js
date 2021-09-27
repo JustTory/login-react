@@ -1,18 +1,20 @@
 import React from 'react'
 import { Link } from "react-router-dom"
+import { useSelector, useDispatch } from 'react-redux'
+import { signOut } from '../redux/actions';
 
-const Navbar = ({ isLoggedIn, logOut }) => {
-
+const Navbar = () => {
+    const user = useSelector(state => state.user)
+    const dispatch = useDispatch()
     const NavItems = () => {
-        if (isLoggedIn === true) {
-            //setLoggedIn(true)
+        if (user !== null) {
             return (
                 <ul className="navbar-nav ml-auto mr-5 mt-2 mt-lg-0">
                     <li className="nav-item mr-5">
                         <Link className="nav-link" to="/contactus">Contact us</Link>
                     </li>
                     <li className="nav-item">
-                        <button type="button" class="btn btn-sm btn-danger text-white nav-link" onClick={logOut}>Log out</button>
+                        <button type="button" class="btn btn-sm btn-danger text-white nav-link" onClick={() => dispatch(signOut())}>Sign out</button>
                     </li>
                 </ul>
             )
@@ -23,7 +25,7 @@ const Navbar = ({ isLoggedIn, logOut }) => {
                         <Link className="nav-link" to="/contactus">Contact us</Link>
                     </li>
                     <li className="nav-item mr-5">
-                        <Link className="nav-link" to="/signup">Create account <span className="sr-only">(current)</span></Link>
+                        <Link className="nav-link" to="/signup">Sign up <span className="sr-only">(current)</span></Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/signin">Sign in</Link>
