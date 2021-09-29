@@ -2,39 +2,47 @@ import React from 'react'
 import { Link } from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux'
 import { signOut } from '../redux/actions';
+import { withRouter } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = (props) => {
+    const { location } = props;
+    console.log(location);
+
     const user = useSelector(state => state.user)
     const dispatch = useDispatch()
+
     const NavItems = () => {
-        if (user !== null) {
-            return (
-                <ul className="navbar-nav ml-auto mr-5 mt-2 mt-lg-0">
-                    <li className="nav-item mr-5">
-                        <Link className="nav-link" to="/contactus">Contact us</Link>
-                    </li>
-                    <li className="nav-item">
-                        <button type="button" className="btn btn-sm btn-danger text-white nav-link" onClick={() => dispatch(signOut())}>Sign out</button>
-                    </li>
-                </ul>
-            )
-        }
-        else return (
-                <ul className="navbar-nav ml-auto mr-5 mt-2 mt-lg-0">
-                    <li className="nav-item mr-5">
-                        <Link className="nav-link" to="/contactus">Contact us</Link>
-                    </li>
-                    <li className="nav-item mr-5">
-                        <Link className="nav-link" to="/signup">Sign up <span className="sr-only">(current)</span></Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/signin">Sign in</Link>
-                    </li>
-                </ul>
-            )
+        return (
+            <ul className="navbar-nav ml-auto mr-5 mt-2 mt-lg-0">
+                <li className="nav-item mr-5">
+                    <Link className="nav-link" to="/contactus">Contact us</Link>
+                </li>
+                {
+                    user
+                        ?
+                        <li className="nav-item">
+                            <button type="button" className="btn btn-sm btn-danger text-white nav-link" onClick={() => dispatch(signOut())}>Sign out</button>
+                        </li>
+                        :
+                        <div className="d-flex">
+                            <li className="nav-item mr-5">
+                                <Link className="nav-link" to="/signup">Sign up <span className="sr-only">(current)</span></Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/signin">Sign in</Link>
+                            </li>
+                        </div>
+                }
+            </ul>
+        )
+
 
     }
 
+
+    if (location.pathname.match(/signin|signup/)) {
+        return null;
+    }
     return (
         <div>
             <nav className="navbar navbar-expand-sm navbar-light bg-light">
@@ -49,6 +57,7 @@ const Navbar = () => {
             </nav>
         </div>
     )
+
 }
 
-export default Navbar
+export default withRouter(Navbar)

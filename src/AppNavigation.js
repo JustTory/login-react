@@ -6,14 +6,22 @@ import SignIn from './components/SignIn'
 
 import Hehe from './components/Hehe'
 import HomeNavi from './HomeNavi'
+import Home from './components/Home'
+import Navbar from './components/Navbar'
+import ContactUs from './components/ContactUs'
+
 
 
 const AppNavigation = () => {
     return (
         <Router>
+            <Navbar/>
             <Switch>
-                <Route>
-                    <HomeNavi />
+                <Route exact path = "/">
+                    <Home/>
+                </Route>
+                <Route path = "/contactus">
+                    <ContactUs/>
                 </Route>
                 <Route path='/signin' >
                     <SignIn />
