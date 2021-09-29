@@ -2,28 +2,27 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import SignUp from './components/SignUp'
 import SignIn from './components/SignIn'
-import Home from './components/Home'
-import Navbar from './components/Navbar'
-import ContactUs from './components/ContactUs'
+
+
+import Hehe from './components/Hehe'
+import HomeNavi from './HomeNavi'
 
 
 const AppNavigation = () => {
     return (
         <Router>
             <Switch>
-                <Route exact path ='/'>
-                    <Navbar/>
-                    <Home/>
+                <Route>
+                    <HomeNavi />
                 </Route>
-                <Route exact path ='/contactus'>
-                    <Navbar/>
-                    <ContactUs/>
+                <Route path='/signin' >
+                    <SignIn />
                 </Route>
-                <Route exact path='/signin' >
-                    <SignIn/>
+                <Route path='/signup' >
+                    <SignUp />
                 </Route>
-                <Route exact path='/signup' >
-                    <SignUp/>
+                <Route path='/hehe' >
+                    <Hehe/>
                 </Route>
             </Switch>
         </Router>
